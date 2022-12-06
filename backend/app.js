@@ -8,14 +8,9 @@ const morgan = require('morgan');
 const app = express();
 
 
-// app.use((req, res, next) => {
-//   res.json({ message: 'Votre requête a bien été reçue !' });
-//   next();
-// });
-
 // permet de voir les requettes Get ,Post sur le terminal 
 app.use(morgan('tiny'));
-app.use(express.json());//deja inclu dans expresse
+app.use(express.json());
 
 
 app.use('/api/auth', authRoutes);

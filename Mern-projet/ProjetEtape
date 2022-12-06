@@ -1,0 +1,2 @@
+nip init -y (-y pour idre oui a tout)
+npm i --save express nodemon dotenv

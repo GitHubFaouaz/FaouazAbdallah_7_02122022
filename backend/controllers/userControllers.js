@@ -45,15 +45,6 @@ module.exports.updateUser = async (req,res) => {
 };
 
  
-/*exports.updateUser = (req, res, next) => {
-     userModel.findOne({ _id: req.params.id } , { $set: { bio:req.body.bio}})
-     userModel.updateOne({ _id: req.params.id }) 
-     .then((docs) => res.status(200).json(docs , {message: 'utilisateur modifié !' }))
-      .catch(error => res.status(400).json(error))
-    
-};*/
-
-
 module.exports.deleteUser = (req, res) => {
     
     userModel.findOne({ _id: req.params.id })//_id de la sauce en vente (dans la base) : egale  a celui du  paramètre de la requête /api/stuff/:id 
