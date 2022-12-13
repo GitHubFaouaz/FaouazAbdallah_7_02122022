@@ -1,19 +1,20 @@
 import express from "express";
 import {
   deleteUser,
-  //   followUser,
+  followUser,
   getUser,
-  //   UnFollowUser,
+  UnFollowUser,
   updateUser,
   getAllUsers,
 } from "../Controllers/UserController.js";
-// import router from "express.router";
+
 const router = express.Router();
 
-// user display
+// user
 router.get("/", getAllUsers); // accedé à tous les utilisateurs
-router.get("/:id", getUser); // accedé à un seul les utilisateur
+router.get("/:id", getUser); // accedé à un seul utilisateur
 router.put("/:id", updateUser); // modification d'un utilisateur
 router.delete("/:id", deleteUser); // suppresion d'un utilisateur
-
+router.put("/:id/follow", followUser);
+router.put("/:id/unfollow", UnFollowUser);
 export default router;

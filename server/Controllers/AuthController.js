@@ -1,7 +1,6 @@
 import UserModel from "../Models/userModel.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-// import { signUpErrors } from "../utils/errors.utils.js";
 
 //------------------------------------------- Registering a new User
 export const registerUser = async (req, res) => {
@@ -28,7 +27,6 @@ export const registerUser = async (req, res) => {
       res.status(201).json({ user: user, token: token });
     }
   } catch (err) {
-    // const errors = signUpErrors(err);
     res.status(400).send({ err });
   }
 };
@@ -60,7 +58,7 @@ export const loginUser = async (req, res) => {
         res.status(200).json({ user, token });
       }
     } else {
-      // si on ne trouve pas l'user on envoi ("User does not exists")
+      // si on ne trouve pas l'user on envoie
       res.status(404).json("L'utilisateur n'existe pas");
     }
   } catch (error) {
