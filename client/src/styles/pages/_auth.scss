@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+// ------------------------------------------bg
+.auth {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+  flex-wrap: wrap;
+}
+
+.colorBg {
+  position: absolute;
+  filter: blur(150px);
+
+  &:nth-child(1) {
+    /* pour les  3 couleurs des enfants de color pour le bg du body en gradiant si on enleve filter dans color on comprend mieux  */
+    top: -350px;
+    width: 100%;
+    height: 600px;
+    background: $orange;
+    border-radius: 0% 0% 100% 100%;
+  }
+  &:nth-child(2) {
+    bottom: -150px;
+    left: 0px;
+    width: 50%;
+    height: 700px;
+    background: $yellow;
+    border-radius: 100% 0% 100% 0%;
+  }
+  &:nth-child(3) {
+    /* pour les  3 couleurs des enfants de color pour le bg du body en gradiant si on enleve filter dans color on comprend mieux  */
+    bottom: -150px;
+    right: 0px;
+    width: 50%;
+    height: 700px;
+    border-radius: 0% 100% 0% 100%;
+    // background: $blue;
+    background: $aqua;
+  }
+}
+
+.containerForm {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  z-index: 9; //enlever pour autre effet
+  .containerLogo {
+    display: flex;
+    justify-content: center;
+  }
+  // -------------------------------------form
+
+  .form {
+    // inset: 162px 121px; // ajuster dimension du form  inset: 162px 121px;
+    position: relative;
+    // margin-left: 10rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    mix-blend-mode: difference;
+
+    padding: 50px 40px;
+    display: flex;
+
+    flex-wrap: wrap;
+    width: 700px;
+
+    h2 {
+      color: #45f3ff;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      position: absolute;
+      left: 5px;
+      top: 5px;
+    }
+    .inputBox {
+      position: relative;
+      width: 300px;
+      margin-top: 35px;
+      margin-left: 10px;
+
+      input {
+        position: relative;
+        width: 100%;
+        padding: 20px 10px 10px; // avec span
+        background: transparent;
+        border: none;
+        outline: none;
+        color: $white;
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+        z-index: 10;
+
+        // si dans input valid ou focus le span translate en y
+        &:valid ~ span,
+        &:focus ~ span {
+          color: $orange;
+          transform: translateX(0px) translateY(-34px);
+          font-size: 0.75em;
+        }
+        &:valid ~ i {
+          /* le i s'ecarts'agrandit */
+          height: 35px;
+        }
+      }
+      span {
+        position: absolute;
+        left: 0;
+        padding: 20px 0px 10px; /*haut horizontal bas*/
+        font-size: 1rem;
+        color: black;
+        pointer-events: none; /* quel fait la souris comme evenement La propriété CSS pointer-events permet de contrôler les circonstances dans lesquelles un élément graphique peut être une cible, c'est-à-dire recevoir des évènements de la souris, du pointeur ou du doigt. */
+        letter-spacing: 0.5rem;
+        transition: 0.5s;
+      }
+      i {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(45deg, #f79200, #000000ad);
+        border-radius: 15px;
+        transition: 0.5s;
+        pointer-events: none;
+        z-index: 9;
+      }
+    }
+  }
+
+  .box {
+    /* --------------------------------------les carrés  */
+    position: relative;
+    margin-left: 10rem;
+    .square {
+      position: absolute;
+      flex-direction: column;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(
+        5px
+      ); /*pour le flou la visibilité comme opacity \en-US\docs\Web\CSS\backdrop-filter */
+      box-shadow: 0 25px 45px rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-right: 1px solid rgba(255, 255, 255, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      // animation: animate 10s linear infinite;
+      animation-delay: calc(-1s * var(--i)); /*les variables du html*/
+      &:nth-child(1) {
+        top: -50px;
+        right: -60px;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+      }
+      &:nth-child(2) {
+        top: 150px;
+        left: -85px;
+        width: 120px;
+        height: 120px;
+        z-index: 2;
+        text-align: center;
+      }
+      &:nth-child(3) {
+        bottom: -50px;
+        right: -40px;
+        width: 80px;
+        height: 80px;
+        z-index: 2;
+      }
+      &:nth-child(4) {
+        bottom: -80px;
+        left: 100px;
+        width: 50px;
+        height: 50px;
+      }
+      &:nth-child(5) {
+        top: -80px;
+        right: 140px;
+        width: 60px;
+        height: 60px;
+      }
+    }
+  }
+}
