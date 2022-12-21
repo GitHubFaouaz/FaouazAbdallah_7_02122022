@@ -45,11 +45,10 @@
 }
 
 .containerForm {
-  width: 100%;
+  width: 60%;
 
   display: flex;
-  justify-content: center;
-  z-index: 9; //enlever pour autre effet
+  justify-content: space-evenly;
   .containerLogo {
     display: flex;
     justify-content: center;
@@ -57,21 +56,19 @@
   // -------------------------------------form
 
   .form {
+    width: 700px;
     // inset: 162px 121px; // ajuster dimension du form  inset: 162px 121px;
     position: relative;
-    // margin-left: 10rem;
+
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.2);
-    mix-blend-mode: difference;
-
     padding: 50px 40px;
-    display: flex;
 
+    display: flex;
     flex-wrap: wrap;
-    width: 700px;
 
     h2 {
-      color: #45f3ff;
+      color: $orange;
       font-weight: 500;
       letter-spacing: 0.1em;
       position: absolute;
@@ -87,8 +84,9 @@
       input {
         position: relative;
         width: 100%;
-        padding: 20px 10px 10px; // avec span
-        background: transparent;
+        padding: 15px 10px 10px; // avec span
+        background: none;
+        border-radius: 15px;
         border: none;
         outline: none;
         color: $white;
@@ -103,6 +101,8 @@
           transform: translateX(0px) translateY(-34px);
           font-size: 0.75em;
         }
+
+        // &:active ~ i,
         &:valid ~ i {
           /* le i s'ecarts'agrandit */
           height: 35px;
@@ -111,9 +111,9 @@
       span {
         position: absolute;
         left: 0;
-        padding: 20px 0px 10px; /*haut horizontal bas*/
+        padding: 15px 0px 10px; /*haut horizontal bas*/
         font-size: 1rem;
-        color: black;
+        color: $black;
         pointer-events: none; /* quel fait la souris comme evenement La propriété CSS pointer-events permet de contrôler les circonstances dans lesquelles un élément graphique peut être une cible, c'est-à-dire recevoir des évènements de la souris, du pointeur ou du doigt. */
         letter-spacing: 0.5rem;
         transition: 0.5s;
@@ -131,61 +131,85 @@
         z-index: 9;
       }
     }
-  }
-
-  .box {
-    /* --------------------------------------les carrés  */
-    position: relative;
-    margin-left: 10rem;
     .square {
-      position: absolute;
+      display: flex;
       flex-direction: column;
       justify-content: center;
+
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(
         5px
       ); /*pour le flou la visibilité comme opacity \en-US\docs\Web\CSS\backdrop-filter */
       box-shadow: 0 25px 45px rgba(255, 255, 255, 0.1);
+
       border: 1px solid rgba(255, 255, 255, 0.5);
       border-right: 1px solid rgba(255, 255, 255, 0.2);
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 10px;
-      // animation: animate 10s linear infinite;
+      animation: animateSquare 10s linear infinite;
       animation-delay: calc(-1s * var(--i)); /*les variables du html*/
-      &:nth-child(1) {
+
+      p {
+        margin-bottom: 5px;
+      }
+
+      /* --------------------------------------les carrés  */
+
+      &:nth-child(8) {
+        position: absolute;
+
+        bottom: -50px;
+        right: -40px;
+        width: 150px;
+        height: 50px;
+        z-index: 2;
+        --i: 2;
+      }
+      &:nth-child(9) {
+        position: absolute;
+        top: 150px;
+        left: -85px;
+        width: 120px;
+        height: 120px;
+        font-weight: 700;
+        cursor: pointer;
+        z-index: 2;
+        text-align: center;
+        --i: 1;
+      }
+      &:nth-child(10) {
+        position: absolute;
         top: -50px;
         right: -60px;
         width: 100px;
         height: 100px;
         text-align: center;
+        mix-blend-mode: difference;
+        --i: 0;
       }
-      &:nth-child(2) {
-        top: 150px;
-        left: -85px;
-        width: 120px;
-        height: 120px;
-        z-index: 2;
-        text-align: center;
-      }
-      &:nth-child(3) {
-        bottom: -50px;
-        right: -40px;
-        width: 80px;
-        height: 80px;
-        z-index: 2;
-      }
-      &:nth-child(4) {
+      &:nth-child(11) {
+        position: absolute;
         bottom: -80px;
         left: 100px;
-        width: 50px;
+        width: 250px;
         height: 50px;
+        text-align: center;
+        --i: 3;
       }
-      &:nth-child(5) {
+      &:nth-child(12) {
+        position: absolute;
         top: -80px;
         right: 140px;
         width: 60px;
         height: 60px;
+        --i: 4;
       }
     }
+  }
+
+  .box {
+    margin-left: 1rem;
+    border-left: solid 1px rgba(43, 37, 3, 0.8);
+    // mix-blend-mode: difference; //enlever pour autre effet
   }
 }

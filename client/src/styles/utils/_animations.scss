@@ -1,0 +1,35 @@
+// -----------------------SignUP
+
+//animation form square(carré)
+@keyframes animateSquare {
+  0%,
+  100% {
+    transform: translateY(-40px);
+  }
+  50% {
+    transform: translateY(40px);
+  }
+}
+
+// -----------------------SignIn
+
+@keyframes animateColorBg {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  20% {
+    transform: translate(300px, -300px);
+  }
+  40% {
+    transform: translate(500px, 100px);
+  }
+  60% {
+    transform: translate(-100px, 200px);
+  }
+  80% {
+    transform: translate(-400px, -300px);
+  }
+  100% {
+    transform: translate(100px, 100px);
+  }
+}

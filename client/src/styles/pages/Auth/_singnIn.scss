@@ -1,0 +1,250 @@
+#body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  //   background: repeating-radial-gradient(#c61dff, #fff 20px);
+  position: relative;
+}
+
+// ----------------------------AnimationBg
+.divColor {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-content: space-around;
+  flex-wrap: wrap;
+
+  min-height: 130vh;
+  filter: blur(150px);
+
+  .color:nth-child(1) {
+    background: rgb(212, 11, 231);
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    animation: animateColorBg 10s linear infinite;
+  }
+  .color:nth-child(2) {
+    background: rgb(240, 115, 13);
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    animation: animateColorBg 15s linear infinite;
+  }
+  .color:nth-child(3) {
+    background: yellow;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    animation: animateColorBg 25s linear infinite;
+  }
+  .color:nth-child(4) {
+    background: rgb(255, 55, 0);
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    animation: animateColorBg 30s linear infinite;
+  }
+  .color:nth-child(5) {
+    background: lightcoral;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    animation: animateColorBg 40s linear infinite;
+  }
+  .color:nth-child(6) {
+    background: aqua;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    animation: animateColorBg 50s linear infinite;
+  }
+}
+
+/* ---------------------------------formulaire */
+
+.container {
+  position: absolute;
+  /* left: -80px; */
+  /* top: 0;s */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .drop {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05),
+      25px 35px 20px rgba(0, 0, 0, 0.05), 25px 30px 30px rgba(0, 0, 0, 0.05),
+      inset -20px -20px 25px rgba(255, 255, 255, 0.9);
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 33% 67% 28% 72% / 46% 32% 68% 54%; /*https://9elements.github.io/fancy-border-radius/#46.33.32.72--.*/
+
+    &:hover {
+      border-radius: 50%;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50px;
+      left: 85px;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background: #fff;
+      opacity: 0.9;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 90px;
+      left: 110px;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: #fff;
+      opacity: 0.9;
+    }
+
+    .content {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+      gap: 15px;
+
+      h2 {
+        position: relative;
+        columns: #333;
+        font-size: 1.5em;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .inputBox {
+          position: relative;
+          width: 225px;
+          box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.1),
+            inset -2px -5px 10px rgba(255, 255, 255, 1),
+            15px 15px 10px rgba(0, 0, 0, 0.05),
+            15px 10px 15px rgba(0, 0, 0, 0.025);
+          /* autre style sans box-shadow: ; */
+          border-radius: 25px;
+          &::before {
+            content: "";
+            position: absolute;
+            top: 8px;
+            left: 50px;
+            transform: translateX(-50%);
+            width: 65px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 5px;
+          }
+
+          input {
+            border: none;
+            outline: none;
+            background: transparent;
+            width: 100%;
+            font-size: 1rem;
+            padding: 10px 15px;
+          }
+          input[type="submit"] {
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 1rem;
+            cursor: pointer;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+          }
+          &:last-child {
+            width: 120px;
+            background: #ff0f5b;
+            box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.1),
+              15px 15px 10px rgba(0, 0, 0, 0.05),
+              15px 10px 15px rgba(0, 0, 0, 0.025);
+            transition: 0.5s;
+          }
+          &:last-child:hover {
+            width: 150px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ----------------------------forgot password  */
+
+.btns {
+  position: absolute;
+  right: -120px;
+  bottom: 0;
+  width: 120px;
+  height: 120px;
+  background: #c61dff; /* //background: repeating-radial-gradient(#c61dff,#fff 20px); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  line-height: 1.2em;
+  letter-spacing: 0.1em;
+  font-size: 0.8em;
+  transition: 0.25s;
+  text-align: center;
+  box-shadow: inset 10px 10px 10px rgba(190, 1, 254, 0.05),
+    15px 25px 10px rgba(190, 1, 254, 0.1), 15px 20px 20px rgba(190, 1, 254, 0.1),
+    inset -10px -10px 15px rgba(255, 255, 255, 0.5);
+  border-radius: 35% 65% 71% 29% / 55% 62% 38% 45%;
+
+  &:hover {
+    border-radius: 50%;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 30px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0.45;
+  }
+}
+
+.signup {
+  bottom: 150px;
+  right: -120px;
+  width: 80px;
+  height: 80px;
+  border-radius: 46% 54% 46% 54% / 61% 55% 45% 39%;
+  background: #01b4ff;
+  box-shadow: inset 10px 10px 10px rgba(190, 1, 254, 0.05),
+    15px 25px 10px rgba(190, 1, 254, 0.1), 15px 20px 20px rgba(190, 1, 254, 0.1),
+    inset -10px -10px 15px rgba(255, 255, 255, 0.5);
+  &::before {
+    left: 15px;
+    width: 15px;
+    height: 15px;
+    background: #fff;
+  }
+}

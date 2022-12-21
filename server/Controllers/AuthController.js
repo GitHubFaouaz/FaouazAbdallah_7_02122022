@@ -8,17 +8,22 @@ export const registerUser = async (req, res) => {
   const salt = await bcrypt.genSalt(10);
   const hashedPass = await bcrypt.hash(req.body.password, salt);
   req.body.password = hashedPass;
+  // console.log(hashedPass);
 
   const newUser = new UserModel({ ...req.body });
+
   // const newUser = new UserModel(req.body);
+
   try {
     // const user = await UserModel.create({ pseudo, email, password }); // avec la function create  save est inclut
+
     const userExiste = await UserModel.findOne({ pseudo: newUser.pseudo });
 
     if (userExiste)
       return res.status(400).json({ message: "Ce pseudo existe déjà" });
     else {
       const user = await newUser.save();
+
       const token = jwt.sign(
         { pseudo: user.pseudo, id: user._id },
         process.env.JWTKEY,

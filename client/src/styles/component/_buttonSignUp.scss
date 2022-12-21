@@ -1,0 +1,20 @@
+.banner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap; /* ains les blocks ne se coles pas */
+  // transform-style: preserve-3d; /*https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style*/
+  // perspective: 500px;
+
+  .blocks {
+    display: block;
+    width: 15px; /* le boutton peut couper a ccause du flex-wrap: donc la taille du block doit etre changer */
+    height: 15px;
+    // animation: animate  10ms ease-in-out forwards; /*on fait translater les blocks en Y */
+    /* animation-delay: 1s; */
+    cursor: pointer;
+    background: red;
+  }
+}
